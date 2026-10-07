@@ -7,6 +7,7 @@ from django.urls import include, path
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("blog.urls")),
+    path("portfolio/", include("pages.urls")),
 ]
 
 # En desarrollo Django se encarga de servir los archivos estaticos,

@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Portfolio{% endblock %}
+
+{% block contenido %}
+<section id="sobre-mi" class="presentacion">
+
+    <div class="informacion">
+        <h1>Facundo Saint Martin</h1>
+        <h2>Información breve</h2>
+
+        <p>
+            Soy estudiante de nivel secundario tecnico con orientación
+            en Informática en el Huergo.
+        </p>
+
+        <p>
+            Estoy aprendiendo programación y desarrollo de aplicaciones.
+            Me interesa especialmente el desarrollo de software y la tecnología.
+        </p>
+
+        <p>
+            En los proyectos que hago practico programación, estructuras
+            de datos, manejo de archivos y bases de datos.
+        </p>
+    </div>
+
+    <div id="proyectos" class="lista-proyectos">
+        <h2>Proyectos</h2>
+
+        <article class="proyecto">
+            <img src="{% static 'img/mastacards.png' %}" alt="Captura del proyecto MastaCards">
+            <div>
+                <h3>MastaCards</h3>
+                <p>
+                    Proyecto de programación desarrollado en equipo.
+                    Incluye diferentes juegos realizados con Python,
+                    programación modular, estructuras de datos,
+                    manejo de archivos e interfaces.
+                </p>
+                <a href="https://github.com/el-kitos/MastaCards" target="_blank" rel="noopener">
+                    Ver proyecto en GitHub
+                </a>
+            </div>
+        </article>
+
+        <article class="proyecto">
+            <img src="{% static 'img/slitherio.png' %}" alt="Captura del juego Slither">
+            <div>
+                <h3>Slither.io</h3>
+                <p>
+                    Proyecto academico de programación en equipo,
+                    aplicando programación, estructuras de datos.
+                </p>
+                <a href="https://github.com/fulgencio-marmot-12/tp_piaesoassoy" target="_blank" rel="noopener">
+                    Ver proyecto en GitHub
+                </a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section id="habilidades" class="seccion">
+    <h2>Habilidades</h2>
+    <p>Estas son algunas de las tecnologias y temas que estoy aprendiendo:</p>
+
+    <div class="habilidades">
+        <div class="habilidad"><i class="fa-brands fa-python"></i><span>Python</span></div>
+        <div class="habilidad"><i class="fa-solid fa-code"></i><span>C++</span></div>
+        <div class="habilidad"><i class="fa-brands fa-html5"></i><span>HTML</span></div>
+        <div class="habilidad"><i class="fa-brands fa-css3-alt"></i><span>CSS</span></div>
+        <div class="habilidad"><i class="fa-solid fa-database"></i><span>SQL</span></div>
+        <div class="habilidad"><i class="fa-solid fa-list"></i><span>Estructuras de datos</span></div>
+        <div class="habilidad"><i class="fa-solid fa-network-wired"></i><span>Redes</span></div>
+        <div class="habilidad"><i class="fa-solid fa-microchip"></i><span>Arduino</span></div>
+        <div class="habilidad"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+        <div class="habilidad"><i class="fa-brands fa-github"></i><span>GitHub</span></div>
+        <div class="habilidad"><i class="fa-solid fa-file-code"></i><span>Manejo de archivos</span></div>
+        <div class="habilidad"><i class="fa-solid fa-cubes"></i><span>POO</span></div>
+    </div>
+
+    <a href="{% static 'CV_Facundo_Saint_Martin_ATS.pdf' %}" download class="boton">
+        <i class="fa-solid fa-file-arrow-down"></i>
+        Descargar CV
+    </a>
+</section>
+
+<section id="contacto" class="seccion contacto">
+    <h2>Contacto</h2>
+    <p>Si queres contactarme, estos son mis datos:</p>
+
+    <div class="datos-contacto">
+        <a href="https://mail.google.com/mail/u/0/?vie">
+            <i class="fa-solid fa-envelope"></i>
+            facundosaintmartin@gmail.com
+        </a>
+        <a href="tel:+541130454279">
+            <i class="fa-solid fa-phone"></i>
+            11 3045-4279
+        </a>
+        <a href="https://www.instagram.com/facu_stm/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i>
+            @facu_stm
+        </a>
+        <a href="https://github.com/fulgencio-marmot-12" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i>
+            GitHub
+        </a>
+    </div>
+</section>
+{% endblock %}
