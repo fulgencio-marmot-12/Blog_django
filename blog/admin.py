@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Post
+from .models import Comment, Post
 
 
 @admin.register(Post)
@@ -16,3 +16,13 @@ class PostAdmin(admin.ModelAdmin):
         ("Multimedia", {"fields": ("image",)}),
         ("Publicacion", {"fields": ("published", "published_at")}),
     )
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ("post", "name", "email", "created_at")
+    list_filter = ("created_at", "post")
+    search_fields = ("name", "email", "body")
+    date_hierarchy = "created_at"
+    ordering = ("-created_at",)
+    list_select_related = ("post",)

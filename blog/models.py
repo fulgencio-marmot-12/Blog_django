@@ -46,3 +46,26 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("blog:detalle", args=[self.slug])
+
+
+class Comment(models.Model):
+    """Comentario anonimo que cualquier visitante deja en una entrada."""
+
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name="comments",
+        verbose_name="entrada",
+    )
+    name = models.CharField("nombre", max_length=80)
+    email = models.EmailField("email")
+    body = models.TextField("comentario")
+    created_at = models.DateTimeField("creado el", auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "comentario"
+        verbose_name_plural = "comentarios"
+
+    def __str__(self):
+        return f"{self.name} - {self.post.title}"
