@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block titulo %}{{ post.title }}{% endblock %}
+
+{% block contenido %}
+<article class="post">
+    <header class="post-cabecera">
+        <p class="entrada-fecha">{{ post.published_at|date:"d/m/Y" }}</p>
+        <h1>{{ post.title }}</h1>
+    </header>
+
+    {% if post.image %}
+    <img class="post-imagen" src="{{ post.image.url }}" alt="{{ post.title }}">
+    {% endif %}
+
+    <div class="post-contenido">
+        {{ post.content|linebreaks }}
+    </div>
+
+    {% if user.is_staff %}
+    <div class="post-admin">
+        <a href="{% url 'blog:editar' post.slug %}"><i class="fa-solid fa-pen"></i> Editar</a>
+        <a href="{% url 'blog:borrar' post.slug %}"><i class="fa-solid fa-trash"></i> Borrar</a>
+    </div>
+    {% endif %}
+</article>
+
+<section class="comentarios">
+    <h2>Comentarios ({{ comentarios|length }})</h2>
+
+    {% for comentario in comentarios %}
+    <article class="comentario">
+        <p class="comentario-cabecera">
+            <strong>{{ comentario.name }}</strong>
+            <span>{{ comentario.created_at|date:"d/m/Y H:i" }}</span>
+        </p>
+        <p>{{ comentario.body|linebreaks }}</p>
+    </article>
+    {% empty %}
+    <p class="vacio"> Todavia no hay comentarios, deja el primero.</p>
+    {% endfor %}
+
+    <form class="formulario-comentario" method="post" novalidate>
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+        <p class="error">{{ form.non_field_errors|striptags }}</p>
+        {% endif %}
+
+        {% for campo in form %}
+        <div class="campo">
+            <label for="{{ campo.id_for_label }}">{{ campo.label }}</label>
+            {{ campo }}
+            {% if campo.errors %}
+            <p class="error">{{ campo.errors|striptags }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <button class="boton" type="submit">Comentar</button>
+    </form>
+</section>
+{% endblock %}

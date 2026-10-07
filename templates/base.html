@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Blog{% endblock %} - Facundo Saint Martin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    {% block hoja %}{% endblock %}
+</head>
+<body>
+
+    <header>
+        <div class="barra">
+            <h2>YO</h2>
+
+            <nav>
+                <a href="{% url 'blog:lista' %}">Blog</a>
+                {% if user.is_staff %}
+                <a href="{% url 'blog:crear' %}">Nueva entrada</a>
+                {% endif %}
+                <button id="modo" type="button">Modo oscuro</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% if messages %}
+        <ul class="mensajes">
+            {% for mensaje in messages %}
+            <li class="mensaje">{{ mensaje }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% block contenido %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Facundo Saint Martin</p>
+    </footer>
+
+    <script>
+        let boton = document.getElementById("modo");
+
+        boton.addEventListener("click", function() {
+            document.body.classList.toggle("oscuro");
+
+            if (document.body.classList.contains("oscuro")) {
+                boton.textContent = "Modo claro";
+            } else {
+                boton.textContent = "Modo oscuro";
+            }
+        });
+    </script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

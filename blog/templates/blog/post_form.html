@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block titulo %}{% if object %}Editar entrada{% else %}Nueva entrada{% endif %}{% endblock %}
+
+{% block contenido %}
+<section class="formulario">
+    <h1>{% if object %}Editar entrada{% else %}Nueva entrada{% endif %}</h1>
+
+    <form method="post" enctype="multipart-form-data" novalidate>
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+        <p class="error">{{ form.non_field_errors|striptags }}</p>
+        {% endif %}
+
+        {% for campo in form %}
+        <div class="campo">
+            <label for="{{ campo.id_for_label }}">{{ campo.label }}</label>
+            {{ campo }}
+            {% if campo.help_text %}
+            <small class="ayuda">{{ campo.help_text }}</small>
+            {% endif %}
+            {% if campo.errors %}
+            <p class="error">{{ campo.errors|striptags }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <div class="botones">
+            <button class="boton" type="submit">Guardar</button>
+            <a class="boton-secundario" href="{% url 'blog:lista' %}">Cancelar</a>
+        </div>
+    </form>
+</section>
+{% endblock %}
