@@ -6,7 +6,7 @@
 <section class="formulario">
     <h1>{% if object %}Editar entrada{% else %}Nueva entrada{% endif %}</h1>
 
-    <form method="post" enctype="multipart-form-data" novalidate>
+    <form method="post" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
 
         {% if form.non_field_errors %}

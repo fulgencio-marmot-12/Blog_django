@@ -26,9 +26,18 @@
                 <a href="{% url 'pages:portfolio' %}#proyectos">Proyectos</a>
                 <a href="{% url 'pages:portfolio' %}#habilidades">Habilidades</a>
                 <a href="{% url 'pages:portfolio' %}#contacto">Contacto</a>
+
                 {% if user.is_staff %}
                 <a href="{% url 'blog:crear' %}">Nueva entrada</a>
+                <a class="nav-accion" href="{% url 'admin:index' %}">Panel admin</a>
+                <form class="nav-salir" method="post" action="{% url 'admin:logout' %}">
+                    {% csrf_token %}
+                    <button class="nav-accion" type="submit">Salir</button>
+                </form>
+                {% else %}
+                <a class="nav-accion" href="{% url 'admin:login' %}">Ingresar</a>
                 {% endif %}
+
                 <button id="modo" type="button">Modo oscuro</button>
             </nav>
         </div>
