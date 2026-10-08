@@ -26,10 +26,23 @@ Trabajo práctico de *Laboratorio de Algoritmos y Estructuras de Datos*.
 
 ## Cómo ejecutarlo
 
+Lo más rápido: doble clic en **`correr.bat`**, que usa el Python de la
+computadora (si ya tiene Django) y abre el navegador. O a mano:
+
 ```powershell
 git clone https://github.com/fulgencio-marmot-12/Blog_django.git
 cd Blog_django
 
+python -m pip install -r requirements.txt
+
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+```
+
+Si preferís aislar todo en un entorno virtual (opcional):
+
+```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
