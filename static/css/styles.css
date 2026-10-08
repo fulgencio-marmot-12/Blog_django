@@ -73,6 +73,32 @@ nav a:hover {
     font-family: inherit;
 }
 
+/* Boton de administracion (Ingresar / Panel admin / Salir) */
+
+.nav-accion {
+    padding: 7px 10px;
+    color: var(--texto);
+    background-color: var(--caja);
+    border: 1px solid var(--borde);
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    text-decoration: none;
+}
+
+.nav-accion:hover {
+    background-color: var(--fondo);
+    text-decoration: none;
+}
+
+.nav-salir {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+}
+
 /* PARTE PRINCIPAL - parecida al dibujo */
 
 .presentacion {
