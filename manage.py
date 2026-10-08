@@ -9,7 +9,6 @@ def main():
         from django.core.management import execute_from_command_line
     except ImportError as exc:
         raise ImportError(
-           
         ) from exc
     execute_from_command_line(sys.argv)
 
