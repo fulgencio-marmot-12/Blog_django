@@ -16,7 +16,6 @@ from .models import Post
 
 
 class SoloAdmin(LoginRequiredMixin, UserPassesTestMixin):
-    """Solo el administrador del sitio crea, edita o borra entradas."""
 
     def test_func(self):
         return self.request.user.is_authenticated and self.request.user.is_staff
@@ -28,7 +27,6 @@ class SoloAdmin(LoginRequiredMixin, UserPassesTestMixin):
 
 
 class PostListView(ListView):
-    """Portada del blog: entradas ordenadas de más nuevas a más viejas."""
 
     model = Post
     template_name = "blog/post_list.html"
@@ -39,7 +37,6 @@ class PostListView(ListView):
 
 
 class PostDetailView(DetailView):
-    """Entrada completa con sus comentarios y el formulario para comentar."""
 
     model = Post
     template_name = "blog/post_detail.html"

@@ -4,7 +4,6 @@ from .models import Comment, Post
 
 
 class PostForm(forms.ModelForm):
-    """Alta y edición de entradas, pensada para el administrador."""
 
     class Meta:
         model = Post
@@ -35,7 +34,6 @@ class PostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
-    """Formulario para dejar un comentario sin registrarse."""
 
     class Meta:
         model = Comment

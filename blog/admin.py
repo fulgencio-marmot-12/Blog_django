@@ -5,7 +5,6 @@ from .models import Comment, Post
 
 
 class CommentInline(admin.TabularInline):
-    """Los comentarios se ven dentro de la entrada y se borran desde ahi."""
 
     model = Comment
     extra = 0

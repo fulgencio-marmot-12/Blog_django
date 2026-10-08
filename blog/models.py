@@ -5,7 +5,6 @@ from django.utils.text import slugify
 
 
 class Post(models.Model):
-    """Una entrada del blog: texto, imagen y fecha de publicación."""
 
     title = models.CharField("título", max_length=200)
     slug = models.SlugField("enlace", max_length=220, unique=True, blank=True)
@@ -49,7 +48,6 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    """Comentario anónimo que cualquier visitante deja en una entrada."""
 
     post = models.ForeignKey(
         Post,
