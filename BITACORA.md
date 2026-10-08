@@ -3,7 +3,7 @@
 
 ## Como lo hice
 
-Fui subiendo avances al repositorio en maso menos 10 comits.
+Fui subiendo avances al repositorio en maso menos 20 comits. En estos especifico que hago que cambio y para que.
 ---
 
 ## Cómo se ejecuta
