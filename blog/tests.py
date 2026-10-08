@@ -35,6 +35,7 @@ class PostModelTests(TestCase):
         self.assertEqual(str(post), "Mi entrada")
 
     def test_las_entradas_se_ordenan_de_mas_nueva_a_mas_vieja(self):
+        Post.objects.all().delete()
         vieja = crear_post("La mas vieja", dias_atras=10)
         nueva = crear_post("La mas nueva", dias_atras=1)
         self.assertEqual(list(Post.objects.all()), [nueva, vieja])
@@ -70,6 +71,7 @@ class ListadoTests(TestCase):
 class PaginacionTests(TestCase):
     @classmethod
     def setUpTestData(cls):
+        Post.objects.all().delete()
         for numero in range(1, 7):
             crear_post(f"Entrada numero {numero}", dias_atras=numero)
 
