@@ -28,7 +28,7 @@ class SoloAdmin(LoginRequiredMixin, UserPassesTestMixin):
 
 
 class PostListView(ListView):
-    """Portada del blog: entradas ordenadas de mas nuevas a mas viejas."""
+    """Portada del blog: entradas ordenadas de más nuevas a más viejas."""
 
     model = Post
     template_name = "blog/post_list.html"
@@ -60,7 +60,7 @@ class PostDetailView(DetailView):
             comentario = form.save(commit=False)
             comentario.post = self.object
             comentario.save()
-            messages.success(request, "Gracias por tu comentario, ya esta publicado.")
+            messages.success(request, "Gracias por tu comentario, ya está publicado.")
             return redirect("blog:detalle", slug=self.object.slug)
         context = self.get_context_data(object=self.object, form=form)
         return self.render_to_response(context)
@@ -72,7 +72,7 @@ class PostCreateView(SoloAdmin, CreateView):
     template_name = "blog/post_form.html"
 
     def form_valid(self, form):
-        messages.success(self.request, "La entrada se creo correctamente.")
+        messages.success(self.request, "La entrada se creó correctamente.")
         return super().form_valid(form)
 
 
@@ -92,5 +92,5 @@ class PostDeleteView(SoloAdmin, DeleteView):
     success_url = reverse_lazy("blog:lista")
 
     def form_valid(self, form):
-        messages.success(self.request, "La entrada se borro.")
+        messages.success(self.request, "La entrada se borró.")
         return super().form_valid(form)

@@ -17,7 +17,7 @@
                 <p class="entrada-fecha">{{ post.published_at|date:"d/m/Y" }}</p>
                 <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
                 <p>{{ post.excerpt }}</p>
-                <a class="leer-mas" href="{{ post.get_absolute_url }}">Leer mas &rarr;</a>
+                <a class="leer-mas" href="{{ post.get_absolute_url }}">Leer más &rarr;</a>
             </div>
         </article>
         {% endfor %}
@@ -28,7 +28,7 @@
             <a href="?page={{ page_obj.previous_page_number }}">&larr; Anteriores</a>
             {% endif %}
 
-            <span>Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+            <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
 
             {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}">Siguientes &rarr;</a>
@@ -37,7 +37,11 @@
         {% endif %}
 
     {% else %}
-    <p class="vacio">Todavia no hay entradas, volvi pronto.</p>
+    <p class="vacio">Todavía no hay entradas, volví pronto.</p>
+
+    {% if user.is_staff %}
+    <a class="leer-mas" href="{% url 'blog:crear' %}">Creá tu primera entrada &rarr;</a>
+    {% endif %}
     {% endif %}
 </section>
 {% endblock %}

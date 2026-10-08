@@ -273,4 +273,4 @@ class MensajesTests(TestCase):
             },
             follow=True,
         )
-        self.assertContains(respuesta, "La entrada se creo correctamente")
+        self.assertContains(respuesta, "La entrada se creó correctamente")

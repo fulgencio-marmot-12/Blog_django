@@ -6,7 +6,7 @@ from django.urls import include, path
 
 admin.site.site_header = "Blog de Facundo Saint Martin"
 admin.site.site_title = "Admin del blog"
-admin.site.index_title = "Panel de administracion"
+admin.site.index_title = "Panel de administración"
 
 urlpatterns = [
     path("admin/", admin.site.urls),

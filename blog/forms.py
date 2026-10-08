@@ -4,21 +4,21 @@ from .models import Comment, Post
 
 
 class PostForm(forms.ModelForm):
-    """Alta y edicion de entradas, pensada para el administrador."""
+    """Alta y edición de entradas, pensada para el administrador."""
 
     class Meta:
         model = Post
         fields = ("title", "excerpt", "content", "image", "published", "published_at")
         labels = {
-            "title": "Titulo",
+            "title": "Título",
             "excerpt": "Extracto",
             "content": "Contenido",
             "image": "Imagen",
             "published": "Publicado",
-            "published_at": "Fecha de publicacion",
+            "published_at": "Fecha de publicación",
         }
         widgets = {
-            "title": forms.TextInput(attrs={"placeholder": "Titulo de la entrada"}),
+            "title": forms.TextInput(attrs={"placeholder": "Título de la entrada"}),
             "excerpt": forms.Textarea(
                 attrs={
                     "rows": 2,
@@ -26,7 +26,7 @@ class PostForm(forms.ModelForm):
                 }
             ),
             "content": forms.Textarea(
-                attrs={"rows": 14, "placeholder": "Escribi la entrada aca..."}
+                attrs={"rows": 14, "placeholder": "Escribí la entrada acá..."}
             ),
             "published_at": forms.DateTimeInput(
                 attrs={"type": "datetime-local"}, format="%Y-%m-%dT%H:%M"
@@ -56,6 +56,6 @@ class CommentForm(forms.ModelForm):
                 }
             ),
             "body": forms.Textarea(
-                attrs={"placeholder": "Escribi tu comentario...", "rows": 4}
+                attrs={"placeholder": "Escribí tu comentario...", "rows": 4}
             ),
         }

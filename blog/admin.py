@@ -33,7 +33,7 @@ class PostAdmin(admin.ModelAdmin):
         (None, {"fields": ("title", "slug", "excerpt", "content")}),
         ("Multimedia", {"fields": ("image",)}),
         (
-            "Publicacion",
+            "Publicación",
             {"fields": ("published", "published_at", "created_at")},
         ),
     )

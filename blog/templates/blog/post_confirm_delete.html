@@ -6,12 +6,12 @@
 <section class="formulario">
     <h1>Borrar entrada</h1>
 
-    <p>Seguro que queres borrar <strong>{{ object.title }}</strong>? No se puede deshacer.</p>
+    <p>¿Seguro que querés borrar <strong>{{ object.title }}</strong>? No se puede deshacer.</p>
 
     <form method="post">
         {% csrf_token %}
         <div class="botones">
-            <button class="boton" type="submit">Si, borrar</button>
+            <button class="boton" type="submit">Sí, borrar</button>
             <a class="boton-secundario" href="{{ object.get_absolute_url }}">Cancelar</a>
         </div>
     </form>

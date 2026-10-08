@@ -5,9 +5,9 @@ from django.utils.text import slugify
 
 
 class Post(models.Model):
-    """Una entrada del blog: texto, imagen y fecha de publicacion."""
+    """Una entrada del blog: texto, imagen y fecha de publicación."""
 
-    title = models.CharField("titulo", max_length=200)
+    title = models.CharField("título", max_length=200)
     slug = models.SlugField("enlace", max_length=220, unique=True, blank=True)
     excerpt = models.CharField(
         "extracto",
@@ -49,7 +49,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    """Comentario anonimo que cualquier visitante deja en una entrada."""
+    """Comentario anónimo que cualquier visitante deja en una entrada."""
 
     post = models.ForeignKey(
         Post,
